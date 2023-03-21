@@ -129,6 +129,33 @@ def trader():
 
 def fruit():
    fruit_choice = input("Do you eat the fruit or leave it?")
+   if fruit_choice == "yes":
+     print("You eat the fruit\n")
+     print(".........\n")
+     time.sleep(1)
+     fruit = roll(1,5)
+     if fruit == 1:
+      print("You gained (+10 HP) from the Fruit\n")
+      hp = char_hp[0] + 10
+      char_hp.clear()
+      char_hp.append(hp)
+   elif fruit == 2:
+      print("You gained (+10 strength) from the fruit\n")
+      str = char_str[0] + 10
+      char_str.clear()
+      char_str.append(str)
+   elif fruit == 3:
+      print("You lose (-3 HP) from the Fruit\n")
+      hp = char_hp[0] - 3
+      char_hp.clear()
+      char_hp.append(hp)
+   elif fruit == 4:
+      print("You lose (-3 strength) from the Fruit\n")
+      str = char_str[0] - 3
+      char_str.clear()
+      char_str.append(str)
+   elif fruit == 5:
+      print()
 
        
       

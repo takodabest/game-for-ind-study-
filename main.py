@@ -11,6 +11,7 @@ enemy_str = []
 lvlone = ['You encounter a goblin',
           'meet trader','find a shiny fruit',]
 lvltwo = ['dungeon','guard merchant']
+lvlthree = ['Raziel', 'Speak']
 # dice roll randomizer(not restricted to 1-6)
 def roll(a,b):
   result = random.randint(a,b)
@@ -237,8 +238,62 @@ def bandit_leader():
 
       
     
+
+
+def level_three():
+   print("You proceed through the creeping hallways and enter a large hollowed chamber with a marble slab table at its center. You see what appears to be an apparition wearing a white cloak, suspended above the table. \n")
+   print("You proceed towards it with caution. As you come close to it, you meet face-to-face with the being. Standing in awe you try to take in what you are seeing, but the creature mutters out an incomprehensible language that startles you. Then it moves. \n")
+   time.sleep(1)
+   rand = random.randint(0,1)
+   encounter = lvlthree[rand]
+   encounter = encounter.split()
+   for i in range(len(encounter)):
+     if 'Raziel' in encounter[i]:
+       BossFight1()
+     elif 'Speak' in encounter[i]:
+       RazielSpeak()
+
+def BossFight1():
+  print("The figure begins to hover towards you slowly, before plunging into the ground. The figure speaks to your once more, and although you still can't seem to make out what its saying, you do hear it say the word Raziel. \n")
+  time.sleep(2)
+  print("Suddenly, it clasp its hands and begins drawing them outwards, creating a large spear-like weapon of regal design and structure. Then assumes a fighting stance. \n")
+  choice = input("Do you wish to fight Raziel or flee?: \n").lower()
+  if choice == 'fight':
+    time.sleep(2)
+    print("You draw your weapon and steel yourself for the incoming battle. \n")
+    Raziel()
+
+def RazielSpeak():
+   print("The figure begins to hover towards you slowly, before plunging into the ground. It looks up at you and articulates a foreign language unknown to the ears, but understandable to the soul. You feel yourself in the presence of Raziel, the Anoited God. \n")
+   time.sleep(3)
+   print("Suddenly, it snaps it fingers and you being to feel the world around you reform. The ground you stand on feels non-existent, the air you breathe feels almost pleasurable and fresh, you begin to understand everything around you but you don't know why. \n")
+   time.sleep(3)
+   print("Then, Raziel walks towards you. It vocalizes a question, inquiring the reason for your presence here. \n")
+   time.sleep(3)
+   choice = input("Do you answer truthfully or lie?: \n").lower()
+   if choice == 'truth':
+     os.system('clear')
+     time.sleep(2)
+     print("You tell Raziel about your adventures through the dungeon and of the many monsters and people you've met. Raziel stands idle as if listening to you speak. It then points to the forked hallway behind it.")
+     choice = input("Do you head left or right?: \n")
+     if choice == 'left':
+       print()
+     else:
+       print()
+   elif choice == 'lie':
+     os.system('clear')
+     time.sleep(2)
+     print("You fabricate a story about your triumphs, accomplishments, and how special of a person you are. You brazzenly demand that Raziel must let you through in the name of glory. Raziel stands idle as if listening to you speak. It then points to the spiral staircase that leads downward to the unknown abyss and the other that leads upward to a blinding light too overwhelming to look at. \n")
+     choice = input("Do you head up or down?: \n")
+     if choice == 'up':
+       print()
+     else:
+       print()
+
+
 os.system('clear')
 print("WELCOME TO: DND RIP-OFF")
 build_char()
 level_one()
 level_two()
+level_three()

@@ -216,7 +216,27 @@ def guard_merchant():
       exit()
 
 def dungeon():
-   print()    
+   print('The receponist says your mission is to raid a dungeon and bring back the group of adventurers that got lost inside\n')
+   time.sleep(2)
+   print("Before you leave the receponist gives you a new sword and chestplate(+45 hp and str)\n")
+   time.sleep(2)
+   hp = char_hp[0] + 45
+   char_hp.clear()
+   char_hp.append(hp)
+   str = char_str[0] + 45
+   char_str.clear()
+   char_str.append(str)
+   time.sleep(2)
+   print('You make your way inside the dungeon which is within a cave. You kill a couple of skeletons and goblins and then find a big wooden door\n')
+   time.sleep(2)
+   print('you open the door and find a big open room and their you find the missing advenurers you go up to check on them and then the big door behind closes and large skelton giant appears behind you\n')
+   time.sleep(2)
+   print('The skeleton giant is ready to attack you have to fight to survive\n')
+   skeleton()
+   print("You defeated the skeleton and then help the travelers get out of the dungeon but on  your way out of the boss room you notice and shiny new chestplate(+50 health)\n")
+   hp = char_hp[0] + 50
+   char_hp.clear()
+   char_hp.append(hp)
 
 def bandit():
    ban_strength = roll(40,45)

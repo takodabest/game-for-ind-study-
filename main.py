@@ -238,6 +238,15 @@ def dungeon():
    char_hp.clear()
    char_hp.append(hp)
 
+def skeleton():
+   skel_strength = roll(50,55)
+   enemy_str.append(skel_strength)
+   skel_health = roll(80,90)
+   enemy_hp.append(skel_health)
+   fight()
+   enemy_hp.clear()
+   enemy_str.clear()
+
 def bandit():
    ban_strength = roll(40,45)
    enemy_str.append(ban_strength)

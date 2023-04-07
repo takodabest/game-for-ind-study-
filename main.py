@@ -11,7 +11,7 @@ enemy_str = []
 lvlone = ['You encounter a goblin',
           'meet trader','find a shiny fruit',]
 lvltwo = ['dungeon','guard merchant']
-lvlthree = ['Raziel', 'Speak']
+lvlthree = ['Raziel', 'Dragon']
 # dice roll randomizer(not restricted to 1-6)
 def roll(a,b):
   result = random.randint(a,b)
@@ -31,16 +31,18 @@ def build_char():
   print("HEALTH:",health)
   print("STRENGTH:",strength)
   print()
+  time.sleep(2)
+  os.system('clear')
 
 def level_one():
-   print('You spawn into a forest\n')
+   print('You enter into a dense, eerie forest. Peering through the trees enveloped by foliage and vegetation of an intense green, you traverse further and further until you hear a noise from the tall bushes. \n')
    time.sleep(1)
    rand = random.randint(0,2)#choose random index 
    encounter = lvlone[rand]#chooses that scenario from lvl one 
    encounter = encounter.split()#splits up string into its own seperate list
    for i in range(len(encounter)):#goes through each list/index in our new list
       if 'goblin' in encounter[i]:#looks for the key words to begin that randomized scenario
-         print('You encounter an angry goblin\n')
+         print('You encounter an angry goblin. While unassuming for its small stature and no armor, it does wield a makeshift weapon in its hand. \n')
          gob_choice = input('Do you fight the goblin or run away:\n').lower()
          if gob_choice == 'fight':
             goblin()
@@ -48,13 +50,13 @@ def level_one():
             print("The goblin chases you but you eventually lose it and manage to get away\n")
 
       elif 'trader' in encounter[i]:
-         print('You meet a suspicious trader\n')
+         print('You meet a suspicious trader. Dressed from heads to toe in a matte black leather cloak, he reaches inside his cloak to grab a sword. \n')
          trader()
       elif 'fruit' in encounter[i]:
-         print(" You find a shiny mysterious fruit\n")
+         print(" You find a shiny mysterious fruit fallen from a nearby tree. \n")
          fruit()
-   print("That was an interesting encounter you had\n")
-   print('You find your wat out of the forest, after walking out you see the massive sign "ADVENTURER GUILD" and you begin to walk towards it\n')
+   print("That was an interesting encounter you had. But you mustn't stop now, who knows if there are any lurking creatures around, or worse, other wicked humans. \n")
+   print('You eventually find your way out of the forest, after walking out you see the massive sign stating, "ADVENTURER GUILD", and you begin to walk through its doors. \n')
      
     
 
@@ -116,15 +118,15 @@ def trader():
        elif sword == 3:
             print("You grab the sword and suddenly start to feel weaker\n")
             print("The sword is cursed(-5 strength)\n")
-            print("You turn to see the trader running away, laughing\n")
+            print("You turn to see the trader running away, cackling in delight of your foolishness. \n")
             sword_str = char_str[0] - 5
             char_str.clear()
             char_str.append(sword_str)
             print("You now have",char_str,'strength\n')
    else:
-      print("You turn to away from the trader\n")
+      print("You turn to away from the trader. Suspicious of what kind of man this mysterious trader is, and what kind of business you would get yourself into. \n")
       time.sleep(1)
-      print('You then suddenly feel a sharp pain from back... You got stabbed with a sword\n')
+      print('You then suddenly feel a sharp pain from back... You were stabbed from behind with a sword. \n')
       time.sleep(1)
       print('Trader: "HOW DARE YOU REJECT MY OFFER"\n')
       time.sleep(1)
@@ -268,19 +270,25 @@ def bandit_leader():
       
     
 
-
 def level_three():
-   print("You proceed through the creeping hallways and enter a large hollowed chamber with a marble slab table at its center. You see what appears to be an apparition wearing a white cloak, suspended above the table. \n")
-   print("You proceed towards it with caution. As you come close to it, you meet face-to-face with the being. Standing in awe you try to take in what you are seeing, but the creature mutters out an incomprehensible language that startles you. Then it moves. \n")
-   time.sleep(1)
    rand = random.randint(0,1)
    encounter = lvlthree[rand]
    encounter = encounter.split()
    for i in range(len(encounter)):
      if 'Raziel' in encounter[i]:
-       BossFight1()
-     elif 'Speak' in encounter[i]:
-       RazielSpeak()
+       print("You proceed through the creeping hallways and enter a large hollowed chamber with a marble slab table at its center. You see what appears to be an apparition wearing a white cloak, suspended above the table. \n")
+       time.sleep(3)
+       print("You proceed towards it with caution. As you come close to it, you meet face-to-face with the being. Standing in awe you try to take in what you are seeing, but the creature mutters out an incomprehensible language that startles you. Then it moves. \n")
+       Boss1Actions()
+     elif 'Dragon' in encounter[i]:
+       print("")
+       
+def Boss1Actions():
+  RazielActions = roll(1,2)
+  if RazielActions == 1:
+    BossFight1()
+  elif RazielActions == 2:
+    RazielSpeak()
 
 def BossFight1():
   print("The figure begins to hover towards you slowly, before plunging into the ground. The figure speaks to your once more, and although you still can't seem to make out what its saying, you do hear it say the word Raziel. \n")
@@ -318,7 +326,25 @@ def RazielSpeak():
        print()
      else:
        print()
+     
 
+def Raziel():
+  raz_strength = roll(250, 300)
+  enemy_str.append(raz_strength)
+  raz_health = roll(300, 400)
+  enemy_hp.append(raz_health)
+  fight()
+  enemy_hp.clear()
+  enemy_str.clear()
+
+def Dragon():
+  drag_strength = roll(300, 350)
+  enemy_str.append(drag_strength)
+  drag_health = roll(250, 300)
+  enemy_hp.append(drag_health)
+  fight()
+  enemy_hp.clear()
+  enemy_str.clear()
 
 os.system('clear')
 print("WELCOME TO: DND RIP-OFF")

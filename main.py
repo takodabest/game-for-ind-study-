@@ -316,7 +316,11 @@ def RazielSpeak():
      print("You tell Raziel about your adventures through the dungeon and of the many monsters and people you've met. Raziel stands idle as if listening to you speak. It then points to the forked hallway behind it.")
      choice = input("Do you head left or right?: \n")
      if choice == 'left':
-       print()
+       print('You traverse leftwards behind to walk down the long hallway, its so quiet that you can hear your own heart beat\n')
+       time.sleep(2)
+       print('You reach the end of the long hall and you find a square room with only one thing in it, a sword stuck in a stone tablet\n')
+       print('You walk up to it and notice wriing on the tablet "If thou is worthy of the blade they will be able to remove the blade and weild its godly power"\n')
+
      else:
        print()
    elif choice == 'lie':

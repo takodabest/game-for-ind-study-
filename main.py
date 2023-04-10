@@ -281,7 +281,9 @@ def level_three():
        print("You proceed towards it with caution. As you come close to it, you meet face-to-face with the being. Standing in awe you try to take in what you are seeing, but the creature mutters out an incomprehensible language that startles you. Then it moves. \n")
        Boss1Actions()
      elif 'Dragon' in encounter[i]:
-       print("")
+       print("Progressing through a colossal cave of dirt and stone, you come into contact with a uncountable amount of gold and treasure laying all around you in the edges of the room. At the very center lays rest' an enormous, scaled beast. Coiled in its own body it slumbers asleep. Upon closer inspection, you realize that the beast is none other than a great dragon.")
+       time.sleep(3)
+       print("You notice a pathway on the opposite side of the room behind the giant monster, but a cold sweat washes down your whole body. The thought of awakening the behemoth is an instant death sentence. But you can't turn back now, not with how far you've gotten, how close you are towards the end.")
        
 def Boss1Actions():
   RazielActions = roll(1,2)
@@ -327,6 +329,18 @@ def RazielSpeak():
      else:
        print()
      
+def BossFight2A():
+  print("As you attempt to move around the dragon as quietly as possible, you hear the sound of scrapping stone and cluttering gold coins move beside you. Thinking that the beast has awoken you quickly turn around to see a plume of dirt, dust, and debris. Emerging from that smog you witness the sheer scale of this dragon. Standing on its four legs and barring teeth larger than yourself, you come to understand that death is inevitable. \n")
+  time.sleep(4)
+  print("All the memories throughout your life flash through your mind, but the earth-shattering roar of Yttriox brings you back into the cruel reality of life. Knowing that you were doom from the start, you draw your weapon in an absurd endevour to fight for your life to the bitter end. \n")
+  time.sleep(3)
+  Dragon()
+
+def BossFight2B():
+  print("Stealthfully operating around the cave, you evade the mess of coins sprawled along the dirt floor as to not make any sudden noise. Getting closer and closer to the end of the cave you feel a sense of unparalleled delight, believing that you truly are about to make it out alive. However, the unexpected rumbling of the ground forces you to hide. So you stow away inside a nearby opened treasure chest.")
+  time.sleep(4)
+  print("Peeking through the slit you see the dragon shaking the dust off itself and peering around the room, investigating the location of what woke it up. ")
+
 
 def Raziel():
   raz_strength = roll(250, 300)
